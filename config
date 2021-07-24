@@ -1,0 +1,83 @@
+//////////////////////////////////////////////////////////////////////////////
+//纹理相关
+
+//纹理种类
+Texture types
+Pattern1
+
+//水平方向纹理周期的数目
+Number of periods of horizontal texture
+10
+//垂直方向纹理周期的数目
+Number of periods of vertical texture
+10
+
+//一周期内点的密度  
+The density of points
+10
+
+Amplitude of texture
+3
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+//墙砖相关
+
+//墙砖的宽度
+The width of the wall tiles
+80
+//墙砖的高度
+The height of the wall tiles
+80
+
+//墙砖的厚度
+The thickness of the wall tiles
+20
+
+//墙砖的支撑数目
+Number of supports of wall tiles
+2
+
+//弧面对应的圆的半径
+The radius of the circle
+80
+
+
+//线宽
+Line width
+3
+
+//层厚
+Layer thick
+1
+
+//结果输出路径
+Output path
+../Result
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//打印机相关
+//挤出的直径
+Extruder Diameter
+2.8
+
+//打印机速度
+Printer speed
+1800
+
+Printer center X
+170
+
+Printer center Y
+170
+
+Extrusion rate
+1.5
