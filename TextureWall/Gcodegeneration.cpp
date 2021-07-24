@@ -92,9 +92,10 @@ void Gcodegeneration::Output_Gcode(Setting *basicsetting, Model *model)
 	float NowUnite = 0;
 	point3D LastPoint;
 	LastPoint = model->at(0).at(0);
+	outfile << "G0 X" << model->at(0).at(0).x << " Y" << model->at(0).at(0).y << " Z" << model->at(0).at(0).z << std::endl;
 	for (int LayerId = 0; LayerId < model->size(); LayerId++) {
 		outfile << ";LAYER:" << LayerId + 1 << std::endl;
-		outfile << "G0 X" << model->at(LayerId).at(0).x << " Y" << model->at(LayerId).at(0).y << " Z" << model->at(LayerId).at(0).z << std::endl;
+		//outfile << "G0 X" << model->at(LayerId).at(0).x << " Y" << model->at(LayerId).at(0).y << " Z" << model->at(LayerId).at(0).z << std::endl;
 		for (int PointId = 0; PointId < model->at(LayerId).size(); PointId++) {
 			NowUnite += Get_Eextrusion(LastPoint, model->at(LayerId).at(PointId), basicsetting);
 			outfile << "G1 F" << basicsetting->g_PrinterSpeed << " X" << model->at(LayerId).at(PointId).x << " Y" << model->at(LayerId).at(PointId).y << " Z" << model->at(LayerId).at(PointId).z << " E" << NowUnite << std::endl;

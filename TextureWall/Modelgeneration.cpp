@@ -48,3 +48,32 @@ Model  *Modelgeneration:: Generate_models(Setting *basicsetting) {
 	}
 	return SamplingModel;
 }
+
+Model  *Modelgeneration::Add_back(Model *model, Setting *basicsetting) {
+
+	int SupportNumber = basicsetting->g_SupportsNumber;
+	double PerLength = basicsetting->g_BrickWidth / (SupportNumber + 1) - basicsetting->g_LineWidth;
+	double PerDeltaZ = basicsetting->g_LayerThickness / SupportNumber;
+	for (int LayerId = 0; LayerId < model->size() - 1; LayerId++) {
+		point3D LastPoint = model->at(LayerId).at(model->at(LayerId).size() - 1);//取出这一层最后一个点
+		LastPoint.y -= basicsetting->g_BrickThickness;
+		model->at(LayerId).push_back(LastPoint);//背部第一个点
+		for (int SupportId = 1; SupportId <= SupportNumber; SupportId++) {
+			LastPoint.x -= PerLength;
+			LastPoint.z += PerDeltaZ;
+			model->at(LayerId).push_back(LastPoint);
+			double DeltaY = sqrt(basicsetting->g_CircleRadius*basicsetting->g_CircleRadius - LastPoint.x*LastPoint.x) - basicsetting->g_TextureAmplitude - basicsetting->g_LineWidth - LastPoint.y;
+			LastPoint.y += DeltaY;
+			model->at(LayerId).push_back(LastPoint);
+			LastPoint.x -= basicsetting->g_LineWidth;
+			model->at(LayerId).push_back(LastPoint);
+			LastPoint.y -= DeltaY;
+			model->at(LayerId).push_back(LastPoint);
+		}
+		LastPoint = model->at(LayerId + 1).at(0);//下一层第一个点
+		LastPoint.y -= basicsetting->g_BrickThickness;
+		model->at(LayerId).push_back(LastPoint);
+	}
+	
+	return model;
+}

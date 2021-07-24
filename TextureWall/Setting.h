@@ -57,7 +57,7 @@ struct point3D {
 	}
 };
 
-
+/*
 std::map<std::string, int> texture{
 		{ "Pattern0",0 },
 		{ "Pattern1",1 },
@@ -70,7 +70,7 @@ std::map<std::string, int> texture{
 		{ "Pattern8",8 },
 		{ "Pattern9",9 },
 };
-
+*/
 
 
 
