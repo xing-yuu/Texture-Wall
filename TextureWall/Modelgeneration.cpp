@@ -13,16 +13,21 @@ Modelgeneration::~Modelgeneration()
 
 
 Layer *Modelgeneration:: Generate_the_first_layer(point3D StartPoint, point3D EndPoint, int PointsNumber, double PerAngle) {
+	//第一个点和最后一个点额外进入
+	//密度为5*10，一共52个点
 	Layer *TempFirstLayer = new Layer;
-	double ANGLE = 1.0 / PI;
+	StartPoint.xn = StartPoint.x / (sqrt(StartPoint.x*StartPoint.x + StartPoint.y*StartPoint.y));
+	StartPoint.yn = StartPoint.y / (sqrt(StartPoint.x*StartPoint.x + StartPoint.y*StartPoint.y));
+	TempFirstLayer->push_back(StartPoint);
 	for (int i = 1; i <= PointsNumber; i++) {
-		StartPoint.xn = StartPoint.x / (sqrt(StartPoint.x*StartPoint.x + StartPoint.y*StartPoint.y));
-		StartPoint.yn = StartPoint.y / (sqrt(StartPoint.x*StartPoint.x + StartPoint.y*StartPoint.y));
 		TempFirstLayer->push_back(StartPoint);
 		point3D NextPoint = StartPoint;
 		StartPoint.x = NextPoint.x*cos(-PerAngle) - NextPoint.y*sin(-PerAngle);
 		StartPoint.y = NextPoint.x*sin(-PerAngle) + NextPoint.y*cos(-PerAngle);//旋转矩阵
+		StartPoint.xn = StartPoint.x / (sqrt(StartPoint.x*StartPoint.x + StartPoint.y*StartPoint.y));
+		StartPoint.yn = StartPoint.y / (sqrt(StartPoint.x*StartPoint.x + StartPoint.y*StartPoint.y));
 	}
+	TempFirstLayer->push_back(StartPoint);//最后一个点
 	return TempFirstLayer;
 }
 

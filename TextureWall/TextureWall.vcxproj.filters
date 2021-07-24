@@ -30,6 +30,12 @@
     <ClInclude Include="Modelgeneration.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Gcodegeneration.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Textureadd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -42,6 +48,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Modelgeneration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Gcodegeneration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Textureadd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -3,14 +3,14 @@
 
 //纹理种类
 Texture types
-Pattern1
+OPattern4
 
 //水平方向纹理周期的数目
 Number of periods of horizontal texture
-10
+6
 //垂直方向纹理周期的数目
 Number of periods of vertical texture
-10
+6
 //一周期内点的密度  
 The density of points
 10
