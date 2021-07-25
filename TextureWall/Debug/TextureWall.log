@@ -1,15 +1,17 @@
 ﻿  Textureadd.cpp
-g:\project\texturewall\texturewall\texturewall\setting.h(45): warning C4244: '/=': conversion from 'const double' to 'float', possible loss of data
-g:\project\texturewall\texturewall\texturewall\setting.h(46): warning C4244: '/=': conversion from 'const double' to 'float', possible loss of data
-g:\project\texturewall\texturewall\texturewall\setting.h(47): warning C4244: '/=': conversion from 'const double' to 'float', possible loss of data
-g:\project\texturewall\texturewall\texturewall\setting.h(53): warning C4244: '*=': conversion from 'const double' to 'float', possible loss of data
-g:\project\texturewall\texturewall\texturewall\setting.h(54): warning C4244: '*=': conversion from 'const double' to 'float', possible loss of data
-g:\project\texturewall\texturewall\texturewall\setting.h(55): warning C4244: '*=': conversion from 'const double' to 'float', possible loss of data
-g:\project\texturewall\texturewall\texturewall\textureadd.cpp(47): warning C4018: '<': signed/unsigned mismatch
-g:\project\texturewall\texturewall\texturewall\textureadd.cpp(55): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-g:\project\texturewall\texturewall\texturewall\textureadd.cpp(56): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-g:\project\texturewall\texturewall\texturewall\textureadd.cpp(62): warning C4018: '<': signed/unsigned mismatch
-g:\project\texturewall\texturewall\texturewall\textureadd.cpp(71): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-g:\project\texturewall\texturewall\texturewall\textureadd.cpp(72): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-  TextureWall.vcxproj -> G:\PROJECT\TextureWall\TextureWall\Debug\TextureWall.exe
-  TextureWall.vcxproj -> G:\PROJECT\TextureWall\TextureWall\Debug\TextureWall.pdb (Full PDB)
+d:\irc\texturewall\texturewall\setting.h(45): warning C4244: '/=': conversion from 'const double' to 'float', possible loss of data
+d:\irc\texturewall\texturewall\setting.h(46): warning C4244: '/=': conversion from 'const double' to 'float', possible loss of data
+d:\irc\texturewall\texturewall\setting.h(47): warning C4244: '/=': conversion from 'const double' to 'float', possible loss of data
+d:\irc\texturewall\texturewall\setting.h(53): warning C4244: '*=': conversion from 'const double' to 'float', possible loss of data
+d:\irc\texturewall\texturewall\setting.h(54): warning C4244: '*=': conversion from 'const double' to 'float', possible loss of data
+d:\irc\texturewall\texturewall\setting.h(55): warning C4244: '*=': conversion from 'const double' to 'float', possible loss of data
+d:\irc\texturewall\texturewall\textureadd.cpp(31): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+d:\irc\texturewall\texturewall\textureadd.cpp(38): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+d:\irc\texturewall\texturewall\textureadd.cpp(64): warning C4018: '<': signed/unsigned mismatch
+d:\irc\texturewall\texturewall\textureadd.cpp(77): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+d:\irc\texturewall\texturewall\textureadd.cpp(78): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+d:\irc\texturewall\texturewall\textureadd.cpp(84): warning C4018: '<': signed/unsigned mismatch
+d:\irc\texturewall\texturewall\textureadd.cpp(93): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+d:\irc\texturewall\texturewall\textureadd.cpp(94): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  TextureWall.vcxproj -> D:\IRC\TextureWall\Debug\TextureWall.exe
+  TextureWall.vcxproj -> D:\IRC\TextureWall\Debug\TextureWall.pdb (Full PDB)

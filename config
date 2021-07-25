@@ -3,7 +3,7 @@
 
 //纹理种类
 Texture types
-OPattern4
+OPattern5
 
 //水平方向纹理周期的数目
 Number of periods of horizontal texture
@@ -13,7 +13,7 @@ Number of periods of vertical texture
 6
 //一周期内点的密度  
 The density of points
-10
+30
 //纹理振幅
 Amplitude of texture
 3
@@ -66,9 +66,10 @@ Output path
 //打印机相关
 //打印机种类
 Printer types
-CERAMBOT Ultimaker
+Eazao Zero
+//CERAMBOT Ultimaker
 //CERAMBOT ANYCUBIC
-//Eazao Zero
+//
 //Eazao Mega 5
 
 //挤出的直径
@@ -80,10 +81,10 @@ Printer speed
 1800
 
 Printer center X
-170
+80
 
 Printer center Y
-170
+80
 
 Extrusion rate
 1.5

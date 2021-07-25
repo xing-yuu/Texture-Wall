@@ -11,6 +11,28 @@ Modelgeneration::~Modelgeneration()
 {
 }
 
+Model *Modelgeneration::Move_models(Model *model, double movex, double movey, double movez) {
+	for (int LayerId = 0; LayerId < model->size(); LayerId++) {
+		for (int PointId = 0; PointId < model->at(LayerId).size(); PointId++) {
+			model->at(LayerId).at(PointId).x += movex;
+			model->at(LayerId).at(PointId).y += movey;
+			model->at(LayerId).at(PointId).z += movez;
+		}
+	}
+	return model;
+}
+
+
+Model *Modelgeneration::Move_models(Model *model, double movex, double movey) {
+	for (int LayerId = 0; LayerId < model->size(); LayerId++) {
+		for (int PointId = 0; PointId < model->at(LayerId).size(); PointId++) {
+			model->at(LayerId).at(PointId).x += movex;
+			model->at(LayerId).at(PointId).y += movey;
+		}
+	}
+	return model;
+}
+
 
 Layer *Modelgeneration:: Generate_the_first_layer(point3D StartPoint, point3D EndPoint, int PointsNumber, double PerAngle) {
 	//第一个点和最后一个点额外进入

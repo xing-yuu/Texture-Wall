@@ -23,6 +23,23 @@ double Textureadd::OPattern3(int pointid, int pointnumber, double amplitude) {
 double Textureadd::OPattern4(int pointid, int pointnumber, double amplitude) {
 	return amplitude*sin(pointid*1.0 / pointnumber * 2 * PI);
 }
+double Textureadd::OPattern5(int pointid, int pointnumber, double amplitude) {
+	if (pointid <= pointnumber*1.0 / 8) {
+		return 0;
+	}
+	if (pointid <= pointnumber*3.0 / 8) {
+		pointid -= pointnumber*1.0 / 8;
+		return amplitude*pointid*1.0 / (pointnumber*1.0 / 4);
+	}
+	if (pointid <= pointnumber*5.0 / 8) {
+		return amplitude;
+	}
+	if (pointid <= pointnumber*7.0 / 8) {
+		pointid -= pointnumber*5.0 / 8;
+		return amplitude*(1 - pointid*1.0 / (pointnumber*1.0 / 4));
+	}
+	return 0;
+}
 double Textureadd::TPattern1(int pointid, double pointnumber, int layerid, double layernumber, double amplitude) {
 	//求出交叉线函数，因为映射，必过（0,0）
 	double K1 = layernumber*1.0 / pointnumber;
@@ -52,6 +69,11 @@ void Textureadd::Function_of_one_ariable(Setting *basicsetting, Model *model) {
 				if (basicsetting->g_TextureName == "OPattern2") OffsetLength = OPattern2(PointId, basicsetting->g_PointDensity, basicsetting->g_TextureAmplitude);
 				if (basicsetting->g_TextureName == "OPattern3") OffsetLength = OPattern3((PointId + LayerId) % basicsetting->g_PointDensity, basicsetting->g_PointDensity, basicsetting->g_TextureAmplitude);
 				if (basicsetting->g_TextureName == "OPattern4") OffsetLength = OPattern4(((int)(sin(LayerId*1.0 / model->size() * basicsetting->g_HorizontalCyclesNumber * 2 * PI) * 3) + PointId + basicsetting->g_PointDensity) % basicsetting->g_PointDensity, basicsetting->g_PointDensity, basicsetting->g_TextureAmplitude);
+				if (basicsetting->g_TextureName == "OPattern5") {
+					OffsetLength = OPattern5(PointId, basicsetting->g_PointDensity, basicsetting->g_TextureAmplitude);
+				//	std::cout << OffsetLength << std::endl;
+					
+				}
 				model->at(LayerId).at(GroupId*basicsetting->g_PointDensity + PointId + 1).x += OffsetLength*model->at(LayerId).at(GroupId*basicsetting->g_PointDensity + PointId + 1).xn;
 				model->at(LayerId).at(GroupId*basicsetting->g_PointDensity + PointId + 1).y += OffsetLength*model->at(LayerId).at(GroupId*basicsetting->g_PointDensity + PointId + 1).yn;
 			}
@@ -85,6 +107,9 @@ void Textureadd::Add_texture(Setting *basicsetting, Model *model) {
 		Function_of_one_ariable(basicsetting, model);
 	}
 	if (basicsetting->g_TextureName == "OPattern4") {
+		Function_of_one_ariable(basicsetting, model);
+	}
+	if (basicsetting->g_TextureName == "OPattern5") {
 		Function_of_one_ariable(basicsetting, model);
 	}
 	if (basicsetting->g_TextureName == "TPattern1") {
