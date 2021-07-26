@@ -15,7 +15,7 @@ int main()
 	resultModel = Modelgeneration::Generate_models(basicSetting);
 	Textureadd::Add_texture(basicSetting, resultModel);
 	resultModel = Modelgeneration::Add_back(resultModel, basicSetting);
-	resultModel = Modelgeneration::Move_models(resultModel, basicSetting->g_CentralX, basicSetting->g_CentralY - basicSetting->g_CircleRadius);
+	resultModel = Modelgeneration::Move_models(resultModel, basicSetting->g_CentralX, basicSetting->g_CentralY - basicSetting->g_CircleRadius, -1);
 	Gcodegeneration::Output_Gcode(basicSetting, resultModel);
     return 0;
 }

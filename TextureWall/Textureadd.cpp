@@ -59,6 +59,25 @@ double Textureadd::TPattern1(int pointid, double pointnumber, int layerid, doubl
 	return amplitude*((layernumber - layerid)*2.0 / layernumber);
  }
 
+double Textureadd::TPattern2(int pointid, double pointnumber, int layerid, double layernumber, double amplitude) {
+	//求出交叉线函数，因为映射，必过（0,0）
+	double K1 = layernumber*1.0 / pointnumber;
+	double K2 = -layernumber*1.0 / pointnumber;
+	double B2 = layernumber;
+	double Y1 = pointid*K1;
+	double Y2 = pointid*K2 + B2;
+	if (pointid <= (pointnumber / 2) && layerid >= Y1&&layerid <= Y2) {
+		return -amplitude*pointid*2.0 / pointnumber;
+	}
+	if (pointid >= (pointnumber / 2) && layerid <= Y1&&layerid >= Y2) {
+		return -amplitude*((pointnumber - pointid)*2.0 / pointnumber);
+	}
+	if (layerid <= (layernumber / 2)) {
+		return -amplitude*layerid*2.0 / layernumber;
+	}
+	return -amplitude*((layernumber - layerid)*2.0 / layernumber);
+}
+
 
 void Textureadd::Function_of_one_ariable(Setting *basicsetting, Model *model) {
 	for (int LayerId = 0; LayerId < model->size(); LayerId++) {
@@ -82,13 +101,13 @@ void Textureadd::Function_of_one_ariable(Setting *basicsetting, Model *model) {
 }
 void Textureadd::Function_of_two_ariable(Setting *basicsetting, Model *model) {
 	for (int LayerId = 0; LayerId < model->size(); LayerId++) {
-		int GroupLayerNumber = model->size() / basicsetting->g_VerticalCyclesNumber;
+		int GroupLayerNumber = model->size()*1.0 / basicsetting->g_VerticalCyclesNumber + 1;
 		int GroupLayerId = LayerId % GroupLayerNumber;
 		for (int GroupId = 0; GroupId < basicsetting->g_HorizontalCyclesNumber; GroupId++) {//横向分组
 			for (int PointId = 0; PointId < basicsetting->g_PointDensity; PointId++) {
 				double OffsetLength = 0;
 				if (basicsetting->g_TextureName == "TPattern1") OffsetLength = TPattern1(PointId, basicsetting->g_PointDensity, GroupLayerId, GroupLayerNumber, basicsetting->g_TextureAmplitude);
-			//	if (basicsetting->g_TextureName == "TPattern2") OffsetLength = Pattern2(PointId, basicsetting->g_PointDensity, basicsetting->g_TextureAmplitude);
+				if (basicsetting->g_TextureName == "TPattern2") OffsetLength = TPattern2(PointId, basicsetting->g_PointDensity, GroupLayerId, GroupLayerNumber, basicsetting->g_TextureAmplitude);
 			//	if (basicsetting->g_TextureName == "TPattern3") OffsetLength = Pattern3((PointId + LayerId) % basicsetting->g_PointDensity, basicsetting->g_PointDensity, basicsetting->g_TextureAmplitude);
 				model->at(LayerId).at(GroupId*basicsetting->g_PointDensity + PointId + 1).x += OffsetLength*model->at(LayerId).at(GroupId*basicsetting->g_PointDensity + PointId + 1).xn;
 				model->at(LayerId).at(GroupId*basicsetting->g_PointDensity + PointId + 1).y += OffsetLength*model->at(LayerId).at(GroupId*basicsetting->g_PointDensity + PointId + 1).yn;
@@ -113,6 +132,9 @@ void Textureadd::Add_texture(Setting *basicsetting, Model *model) {
 		Function_of_one_ariable(basicsetting, model);
 	}
 	if (basicsetting->g_TextureName == "TPattern1") {
+		Function_of_two_ariable(basicsetting, model);
+	}
+	if (basicsetting->g_TextureName == "TPattern2") {
 		Function_of_two_ariable(basicsetting, model);
 	}
 }
