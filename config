@@ -3,20 +3,20 @@
 
 //纹理种类
 Texture types
-TPattern1
+TPattern3
 
 //水平方向纹理周期的数目
 Number of periods of horizontal texture
-3
+10
 //垂直方向纹理周期的数目
 Number of periods of vertical texture
-3
+10
 //一周期内点的密度  
 The density of points
-40
+10
 //纹理振幅
 Amplitude of texture
-8
+3
 
 
 
@@ -29,14 +29,14 @@ Amplitude of texture
 
 //墙砖的宽度
 The width of the wall tiles
-100
+80
 //墙砖的高度
 The height of the wall tiles
-100
+80
 
 //墙砖的厚度
 The thickness of the wall tiles
-20
+15
 
 //墙砖的支撑数目
 Number of supports of wall tiles

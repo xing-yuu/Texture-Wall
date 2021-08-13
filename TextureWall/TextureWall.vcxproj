@@ -74,6 +74,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>.\opencv\build\include;.\opencv\build\include\opencv;.\opencv\build\include\opencv2;$(IncludePath)</IncludePath>
+    <LibraryPath>.\opencv\build\x64\vc12;.\opencv\build\x64\vc14;.\opencv\build\x64\vc14\lib;.\opencv\build\x64\vc12\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -105,6 +107,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opencv_world310d.lib;opencv_world310.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -146,6 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gcodegeneration.h" />
+    <ClInclude Include="Mapgeneration.h" />
     <ClInclude Include="Modelgeneration.h" />
     <ClInclude Include="Setting.h" />
     <ClInclude Include="stdafx.h" />
@@ -154,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Gcodegeneration.cpp" />
+    <ClCompile Include="Mapgeneration.cpp" />
     <ClCompile Include="Modelgeneration.cpp" />
     <ClCompile Include="Setting.cpp" />
     <ClCompile Include="stdafx.cpp">

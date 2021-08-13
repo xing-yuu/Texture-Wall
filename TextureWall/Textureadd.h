@@ -14,6 +14,8 @@ public:
 	static double OPattern5(int pointid, int pointnumber, double amplitude);
 	static double TPattern1(int pointid, double pointnumber, int layerid, double layernumber, double amplitude);
 	static double TPattern2(int pointid, double pointnumber, int layerid, double layernumber, double amplitude);
+	static double TPattern3(int pointid, double pointnumber, int layerid, double layernumber, double amplitude);
+	static double TPattern5(int pointid, double pointnumber, int layerid, double layernumber, double amplitude);
 	static void Function_of_one_ariable(Setting *basicsetting, Model *model);
 	static void Function_of_two_ariable(Setting *basicsetting, Model *model);
 	
