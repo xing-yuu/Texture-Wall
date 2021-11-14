@@ -25,7 +25,7 @@ double Gcodegeneration::Get_Eextrusion(point3D startpoint, point3D endpoint,Sett
 void Gcodegeneration::Output_Gcode(Setting *basicsetting, Model *model)
 {
 	std::ofstream outfile;
-	outfile.open(basicsetting->outputFilePath + "/" + basicsetting->g_TextureName + "_" + std::to_string(basicsetting->g_BrickWidth) + "_" + std::to_string(basicsetting->g_HorizontalCyclesNumber) + "_" + std::to_string(basicsetting->g_TextureAmplitude) + ".gcode");
+	outfile.open(basicsetting->outputFilePath + "/" + basicsetting->g_TextureName + "_" + std::to_string(int(basicsetting->g_VerticalCyclesNumber)) + "_" + std::to_string(int(basicsetting->g_HorizontalCyclesNumber)) + "_" + std::to_string(basicsetting->g_TextureAmplitude) + ".gcode");
 
 	//确定头文件
 	if (basicsetting->g_PrinterID=="CERAMBOT Ultimaker") {
@@ -87,6 +87,21 @@ void Gcodegeneration::Output_Gcode(Setting *basicsetting, Model *model)
 			<< "M302" << std::endl 
 			<< "G1 F1500" << std::endl;
 	}
+	if (basicsetting->g_PrinterID == "K2") {
+		outfile << "G90" << std::endl
+			<< "M82" << std::endl
+			<< "M106 S0" << std::endl
+			<< "M104 S190 T0" << std::endl
+			<< "M109 S190 T0" << std::endl
+			<< "G92 X0 Y0 Z0 E0" << std::endl
+			<< "G1 E-0.0500 F4800" << std::endl
+			<< "G1 Z1.400 F1002" << std::endl
+			<< "T0" << std::endl
+			<< "G1 X163.611 Y165.730 F3000" << std::endl
+			<< "G1 Z0.400 F1002" << std::endl
+			<< "G1 E0.0800 F1440" << std::endl
+			<< "G92 E0" << std::endl;
+	}
 
 	int ii = 0;
 	float NowUnite = 0;
@@ -115,5 +130,12 @@ void Gcodegeneration::Output_Gcode(Setting *basicsetting, Model *model)
 			<< "G1 F1500 Z + 2; move Z up a bit and retract filament even more" << std::endl 
 			<< "G28 X0; move X / Y to min endstops, so the head is out of the way" << std::endl 
 			<< "G90M300 P300 S4000" << std::endl;
+	}
+	if (basicsetting->g_PrinterID == "K2") {
+		outfile << "G92 E0" << std::endl
+			<< "G1 E-0.0500 F4800" << std::endl
+			<< "M104 S0" << std::endl
+			<< "M140 S0" << std::endl
+			<< "M84" << std::endl;
 	}
 }

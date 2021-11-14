@@ -7,18 +7,16 @@ TPattern3
 
 //水平方向纹理周期的数目
 Number of periods of horizontal texture
-10
+2
 //垂直方向纹理周期的数目
 Number of periods of vertical texture
-10
+2
 //一周期内点的密度  
 The density of points
 10
 //纹理振幅
 Amplitude of texture
-3
-
-
+6
 
 
 
@@ -66,7 +64,8 @@ Output path
 //打印机相关
 //打印机种类
 Printer types
-Eazao Zero
+K2
+//Eazao Zero
 //CERAMBOT Ultimaker
 //CERAMBOT ANYCUBIC
 //
