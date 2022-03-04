@@ -11,7 +11,7 @@ Model *resultModel;
 int main()
 {
 	basicSetting = new Setting;
-	basicSetting->Readin_configure("..\\config");
+	basicSetting->Readin_configure("./config");
 	resultModel = Modelgeneration::Generate_models(basicSetting);
 	Textureadd::Add_texture(basicSetting, resultModel);
 	resultModel = Modelgeneration::Add_back(resultModel, basicSetting);
