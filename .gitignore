@@ -3,3 +3,9 @@ Debug/*
 .vs/*
 ipch/*
 Result/*
+SetUp/*
+*.sln
+*.db
+*.vcxproj
+*.user
+*.filters
